@@ -1,1 +1,59 @@
-<!DOCTYPE html><html lang="en"><head><link rel="manifest" href="/manifest.json"><link rel="stylesheet" href="/umi.css"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0"><title>Ant Design Pro</title><link rel="icon" href="/favicon.png" type="image/x-icon"><script src="https://gw.alipayobjects.com/os/antv/pkg/_antv.data-set-0.9.6/dist/data-set.min.js"></script><script>window.routerBase = "/";</script><script async src="/pwacompat.min.js"></script></head><body><noscript>Sorry, we need js to run correctly!</noscript><div id="root"></div><script src="/umi.js"></script></body></html>
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>网站后台内容管理系统登录</title>
+<meta name="keywords" content="后台管理系统后台登录模板">
+<meta name="description" content="cssmoban提供后台管理系统登录界面">
+<meta name="viewport" content="width=device-width">
+<link href="public/css/base.css" rel="stylesheet" type="text/css">
+<link href="public/css/login.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<div class="login">
+<form action="" method="post" id="form">
+	<div class="logo"></div>
+    <div class="login_form">
+    	<div class="user">
+        	<input class="text_value" value="" name="username" type="text" id="username">
+            <input class="text_value" value="" name="password" type="password" id="password">
+        </div>
+        <button class="button" id="submit" type="submit">登录</button>
+    </div>
+    
+    <div id="tip"></div>
+    <div class="foot">
+    Copyright © 2011-2015  All Rights Reserved. More Templates <a href="http://zjtie.top" target="_blank" title="玩转经院">玩转经院</a> - Collect from <a href="http://zjtie.top/" title="玩转经院" target="_blank">经院小喵</a>
+    </div>
+    </form>
+</div>
+<script>var basedir='public/ui/';</script>
+<script src="public/ui/do.js"></script>
+<script src="public/ui/config.js"></script>
+<script>
+Do.ready('form', function() {
+	$("#form").Validform({
+			ajaxPost:true,
+			postonce:true,
+			tiptype:function(msg,o,cssctl){
+				if(!o.obj.is("form")){
+					var objtip=o.obj.siblings(".Validform_checktip");
+					cssctl(objtip,o.type);
+					objtip.text(msg);
+				}else{
+					var objtip=o.obj.find("#tip");
+					cssctl(objtip,o.type);
+					if(o.type==2){
+						window.location.href='index.php?r=admin/index/index';
+					}else{
+						objtip.text(msg);
+					}
+				}
+			}
+	});
+});
+
+</script>
+</body>
+</html>
